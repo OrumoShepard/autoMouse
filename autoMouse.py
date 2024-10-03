@@ -26,8 +26,8 @@ def random_mouse_movement():
         lapsed_time = time.time() - init_time
         if int(lapsed_time)>LAPSE:
             # We generate new random coordinates
-            x = random.randint(0, wide - 1)
-            y = random.randint(0, height - 1)
+            x = random.randint(10, wide - 11)
+            y = random.randint(10, height - 11)
 
             # We move the cursor to the new coordinates
             pyautogui.moveTo(x, y, duration=MOVE_SPEED)  # Smooth movement
