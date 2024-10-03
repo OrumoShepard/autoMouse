@@ -6,6 +6,7 @@ import keyboard
 #Constants
 LAPSE = 60
 MOVE_SPEED = 0.5
+FAIL_SAFE = False
 
 def random_mouse_movement():
     # Desktop dimension
@@ -13,6 +14,9 @@ def random_mouse_movement():
 
     # Init the timer
     init_time = time.time()
+
+    # Set the pyautoGUI Failsafe to FAIL_SAFE value
+    pyautogui.FAILSAFE = FAIL_SAFE
 
     print("Press ESC to stop the program...")
 
@@ -26,8 +30,8 @@ def random_mouse_movement():
         lapsed_time = time.time() - init_time
         if int(lapsed_time)>LAPSE:
             # We generate new random coordinates
-            x = random.randint(10, wide - 11)
-            y = random.randint(10, height - 11)
+            x = random.randint(0, wide - 1)
+            y = random.randint(0, height - 1)
 
             # We move the cursor to the new coordinates
             pyautogui.moveTo(x, y, duration=MOVE_SPEED)  # Smooth movement
